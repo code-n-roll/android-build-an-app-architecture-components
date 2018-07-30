@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\android\\projects\\architectureComponentsSunshineStartingCode\\architectureComponentsSunshineStartingCode\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\extra_weather_details.xml",
+        "source": "D:\\android\\projects\\architectureComponentsSunshineStartingCode\\architectureComponentsSunshineStartingCode\\app\\src\\main\\res\\layout\\extra_weather_details.xml"
+    },
+    {
+        "merged": "D:\\android\\projects\\architectureComponentsSunshineStartingCode\\architectureComponentsSunshineStartingCode\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\primary_weather_info.xml",
+        "source": "D:\\android\\projects\\architectureComponentsSunshineStartingCode\\architectureComponentsSunshineStartingCode\\app\\src\\main\\res\\layout\\primary_weather_info.xml"
+    },
+    {
+        "merged": "D:\\android\\projects\\architectureComponentsSunshineStartingCode\\architectureComponentsSunshineStartingCode\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_detail.xml",
+        "source": "D:\\android\\projects\\architectureComponentsSunshineStartingCode\\architectureComponentsSunshineStartingCode\\app\\src\\main\\res\\layout\\activity_detail.xml"
+    }
+]
