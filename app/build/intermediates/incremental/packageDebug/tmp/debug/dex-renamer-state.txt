@@ -1,4 +1,4 @@
-#Mon Jul 30 18:37:31 MSK 2018
+#Tue Jul 31 11:28:57 MSK 2018
 base.0=D\:\\android\\projects\\architectureComponentsSunshineStartingCode\\architectureComponentsSunshineStartingCode\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

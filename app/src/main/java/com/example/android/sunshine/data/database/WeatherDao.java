@@ -20,8 +20,6 @@ public interface WeatherDao {
             "WHERE date = :date")
     LiveData<WeatherEntry> getWeatherByDate(Date date);
 
-
-
     @Query("SELECT COUNT(id) " +
             "FROM weather " +
             "WHERE date >= :date")
@@ -32,8 +30,8 @@ public interface WeatherDao {
             "WHERE date < :date")
     void deleteOldData(Date date);
 
-    @Query("SELECT * " +
+    @Query("SELECT id, weatherIconId, date, min, max " +
             "FROM weather " +
-            "WHERE date = :date")
-    LiveData<List<WeatherEntry>> getCurrentWeatherForecasts(Date date);
+            "WHERE date >= :date")
+    LiveData<List<ListViewWeatherEntry>> getCurrentWeatherForecasts(Date date);
 }

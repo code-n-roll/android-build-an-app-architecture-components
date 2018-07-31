@@ -203,8 +203,8 @@ public class WeatherDao_Impl implements WeatherDao {
   }
 
   @Override
-  public LiveData<List<WeatherEntry>> getCurrentWeatherForecasts(Date date) {
-    final String _sql = "SELECT * FROM weather WHERE date = ?";
+  public LiveData<List<ListViewWeatherEntry>> getCurrentWeatherForecasts(Date date) {
+    final String _sql = "SELECT id, weatherIconId, date, min, max FROM weather WHERE date >= ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
     final Long _tmp;
@@ -214,11 +214,11 @@ public class WeatherDao_Impl implements WeatherDao {
     } else {
       _statement.bindLong(_argIndex, _tmp);
     }
-    return new ComputableLiveData<List<WeatherEntry>>() {
+    return new ComputableLiveData<List<ListViewWeatherEntry>>() {
       private Observer _observer;
 
       @Override
-      protected List<WeatherEntry> compute() {
+      protected List<ListViewWeatherEntry> compute() {
         if (_observer == null) {
           _observer = new Observer("weather") {
             @Override
@@ -235,13 +235,9 @@ public class WeatherDao_Impl implements WeatherDao {
           final int _cursorIndexOfDate = _cursor.getColumnIndexOrThrow("date");
           final int _cursorIndexOfMin = _cursor.getColumnIndexOrThrow("min");
           final int _cursorIndexOfMax = _cursor.getColumnIndexOrThrow("max");
-          final int _cursorIndexOfHumidity = _cursor.getColumnIndexOrThrow("humidity");
-          final int _cursorIndexOfPressure = _cursor.getColumnIndexOrThrow("pressure");
-          final int _cursorIndexOfWind = _cursor.getColumnIndexOrThrow("wind");
-          final int _cursorIndexOfDegrees = _cursor.getColumnIndexOrThrow("degrees");
-          final List<WeatherEntry> _result = new ArrayList<WeatherEntry>(_cursor.getCount());
+          final List<ListViewWeatherEntry> _result = new ArrayList<ListViewWeatherEntry>(_cursor.getCount());
           while(_cursor.moveToNext()) {
-            final WeatherEntry _item;
+            final ListViewWeatherEntry _item;
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             final int _tmpWeatherIconId;
@@ -258,15 +254,7 @@ public class WeatherDao_Impl implements WeatherDao {
             _tmpMin = _cursor.getDouble(_cursorIndexOfMin);
             final double _tmpMax;
             _tmpMax = _cursor.getDouble(_cursorIndexOfMax);
-            final double _tmpHumidity;
-            _tmpHumidity = _cursor.getDouble(_cursorIndexOfHumidity);
-            final double _tmpPressure;
-            _tmpPressure = _cursor.getDouble(_cursorIndexOfPressure);
-            final double _tmpWind;
-            _tmpWind = _cursor.getDouble(_cursorIndexOfWind);
-            final double _tmpDegrees;
-            _tmpDegrees = _cursor.getDouble(_cursorIndexOfDegrees);
-            _item = new WeatherEntry(_tmpId,_tmpWeatherIconId,_tmpDate,_tmpMin,_tmpMax,_tmpHumidity,_tmpPressure,_tmpWind,_tmpDegrees);
+            _item = new ListViewWeatherEntry(_tmpId,_tmpWeatherIconId,_tmpDate,_tmpMin,_tmpMax);
             _result.add(_item);
           }
           return _result;

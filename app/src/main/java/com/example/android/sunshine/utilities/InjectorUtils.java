@@ -41,6 +41,7 @@ public class InjectorUtils {
    }
 
    public static WeatherNetworkDataSource provideNetworkDataSource(Context context) {
+       provideRepository(context);
        AppExecutors executors = AppExecutors.getInstance();
        return WeatherNetworkDataSource.getInstance(context.getApplicationContext(), executors);
    }
